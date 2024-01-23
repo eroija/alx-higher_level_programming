@@ -21,7 +21,6 @@ class Square:
             ValueError: If size is less than 0.
         """
 
-        self.__size = 0
         self.size = size
 
     @property
@@ -66,7 +65,7 @@ class Square:
              int: The area of the square.
         """
 
-        return self.__size ** 2
+        return self.__size * self.__size
 
     def my_print(self):
 
@@ -74,10 +73,8 @@ class Square:
         Prints the square using the '#' character.
         """
 
-        if self.__size == 0:
+        for i in range(0, self.__size):
+            [print("#", end="") for j in range(self.__size)]
             print()
-        else:
-            for i in range(self.__size):
-                for j in range(self.__size):
-                    print("#", end="")
+        if self.__size == 0:
             print()
