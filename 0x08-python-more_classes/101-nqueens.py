@@ -1,5 +1,6 @@
 #!/usr/bin/python3
-"""Solves the N-queens puzzle.
+"""
+It solves the N-queens puzzle.
 
 Determines all possible solutions to placing N
 N non-attacking queens on an NxN chessboard.
@@ -24,6 +25,7 @@ import sys
 
 
 def init_board(n):
+
     """Initialize an `n`x`n` sized chessboard with 0's."""
     board = []
     [board.append([]) for i in range(n)]
@@ -32,6 +34,7 @@ def init_board(n):
 
 
 def board_deepcopy(board):
+
     """Return a deepcopy of a chessboard."""
     if isinstance(board, list):
         return list(map(board_deepcopy, board))
@@ -39,6 +42,7 @@ def board_deepcopy(board):
 
 
 def get_solution(board):
+
     """Return the list of lists representation of a solved chessboard."""
     solution = []
     for r in range(len(board)):
@@ -50,6 +54,7 @@ def get_solution(board):
 
 
 def xout(board, row, col):
+
     """X out spots on a chessboard.
 
     All spots where non-attacking queens can no
@@ -103,6 +108,7 @@ def xout(board, row, col):
 
 
 def recursive_solve(board, row, queens, solutions):
+
     """Recursively solve an N-queens puzzle.
 
     Args:
