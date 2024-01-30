@@ -2,17 +2,20 @@
 """Defines a Rectangle class."""
 
 
-def __init__(self, width=0, height=0):
+class Rectangle:
 
-    """
-    Initialize a new Rectangle.
+    """Represent a rectangle."""
+    def __init__(self, width=0, height=0):
 
-    Args:
-        width (int): The width of the rectangle
-        height (int): The height of the rectangle
-    """
-    self.width = width
-    self.height = height
+        """
+        Initialize a new Rectangle.
+
+        Args:
+            width (int): The width of the rectangle
+            height (int): The height of the rectangle
+        """
+        self.width = width
+        self.height = height
 
     @property
     def width(self):
