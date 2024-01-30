@@ -1,6 +1,5 @@
-============================
-How to Use 4-print_square.py
-============================
+Use 4-print_square.py
+
 
 This module defines a square-printing function ``print_square(size)``.
 
@@ -45,7 +44,6 @@ If ``size`` is zero, the function prints nothing.
     >>> print_square(0)
 
 Invalid Sizes
-=============
 
 The parameter ``size`` must be an integer. Otherwise, a TypeError is raised.
 
