@@ -8,9 +8,9 @@ class MyInt(int):
     def __eq__(self, other):
 
         """Overrides the == operator."""
-        return self.real != value
+        return not super().__eq__(other)
 
-    def __ne__(self, value):
+    def __ne__(self, other):
 
         """Overrides the != operator."""
-        return self.real == value
+        return not super().__ne__(other)
