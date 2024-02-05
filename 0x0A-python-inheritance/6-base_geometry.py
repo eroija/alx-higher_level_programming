@@ -2,10 +2,11 @@
 """Defines a base geometry class BaseGeometry."""
 
 
-def area(self):
+class BaseGeometry:
+    def area(self):
 
-    """
-    Raises an Exception with the message
-    'area() is not implemented.'
-    """
-    raise Exception("area() is not implemented")
+        """
+        Raises an Exception with the message
+        'area() is not implemented.'
+        """
+        raise Exception("area() is not implemented")
