@@ -8,7 +8,7 @@ class Student:
     def __init__(self, first_name, last_name, age):
 
         """
-	Initialize a new Student.
+        Initialize a new Student.
 
         Args:
             first_name (str): The first name of the student.
@@ -22,7 +22,7 @@ class Student:
     def to_json(self, attrs=None):
 
         """
-	Get a dictionary representation of the Student instance.
+        Get a dictionary representation of the Student instance.
 
         Args:
             attrs: Optional. A list of strings specifying which
@@ -33,8 +33,10 @@ class Student:
             A dictionary containing the specified attributes of
             the Student instance.
         """
-        if attrs is None:
-            return self.__dict__
+        if attrs is not None and isinstance(attrs, list):
+            for item in attrs:
+                if hasattr(self, item):
+                    dct[item] = getattr(self, item)
+            return dct
         else:
-            return {attr: getattr(self, attr) 
-            for attr in attrs if hasattr(self, attr)}
+            return self.__dict__
