@@ -33,10 +33,10 @@ class Student:
             A dictionary containing the specified attributes of
             the Student instance.
         """
-        if attrs is not None and isinstance(attrs, list):
-            for item in attrs:
-                if hasattr(self, item):
-                    dct[item] = getattr(self, item)
-            return dct
-        else:
+        if attrs is None:
             return self.__dict__
+        else:
+            return {
+            attr: getattr(self, attr)
+            for attr in attrs if hasattr(self, attr)
+            }
