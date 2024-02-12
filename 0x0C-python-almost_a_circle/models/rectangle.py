@@ -39,7 +39,7 @@ class Rectangle(Base):
         def width(self, value):
 
             """Setter for the width attribute."""
-            if type(value) is not int:
+            if not isinstance(value, int):
                 raise TypeError("width must be an integer")
             if value <= 0:
                 raise ValueError("width must be > 0")
@@ -108,12 +108,9 @@ class Rectangle(Base):
 
         def __str__(self):
 
-            """ str special method """
-            s1 = "[Rectangle] (" + str(self.id) + ") " + str(self.__x) + "/"
-            s2 = str(self.__y) + " - " + str(self.__width) + "/"
-            s3 = str(self.__height)
-            s = s1 + s2 + s3
-            return s
+            """Return the print() and str() representation of the Rectangle."""
+            return "[Rectangle] ({}) {}/{} - {}/{}".format(
+                    self.id, self.x, self.y, self.width, self.height)
 
         def update(self, *args, **kwargs):
             """Update the attributes of the Rectangle."""
