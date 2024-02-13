@@ -12,6 +12,109 @@ class testRectangle(unittest.TestCase):
     This are unittests to test a Rectangle instances
     """
 
+    def test_id_assignment(self):
+
+        """
+        (test cases for ID assignment,
+        similar to Base class tests)
+        """
+
+    def test_initialization(self):
+
+        """Cases for correct initialization"""
+        rect = Rectangle(5, 4)
+        self.assertEqual(rect.width, 5)
+        self.assertEqual(rect.height, 4)
+        self.assertEqual(rect.x, 0)
+        self.assertEqual(rect.y, 0)
+
+    def test_width_setter_validation(self):
+
+        rect = Rectangle(5, 4)
+
+        with self.assertRaises(TypeError):
+            rect.width = "invalid"
+        with self.assertRaises(ValueError):
+            rect.width = -2
+        with self.assertRaises(ValueError):
+            rect.width = 0
+
+    def test_area(self):
+        rect = Rectangle(5, 4)
+        self.assertEqual(rect.area(), 20)
+
+    def test_display_small_rectangle(self, mock_print):
+        rect = Rectangle(3, 2)
+        rect.display()
+
+        mock_print.assert_called_with("#" * 3)
+        mock_print.assert_called_with("#" * 3)
+
+    def test_display_larger_rectangle(self, mock_print):
+        rect = Rectangle(10, 5)
+        rect.display()
+
+        for _ in range(5):
+            mock_print.assert_called_with("#" * 10)
+
+    def test_str_method(self):
+        rect = Rectangle(5, 4, 2, 3)
+        expected_str = "[Rectangle] (1) 2/3 - 5/4"
+        self.assertEqual(str(rect), expected_str)
+
+    def test_str_edge_cases(self):
+        """Test with x, y, width, height at 0"""
+        rect = Rectangle(0, 0, 0, 0)
+        expected_str = "[Rectangle] (1) 0/0 - 0/0"
+        self.assertEqual(str(rect), expected_str)
+
+        """Test with large values"""
+        rect = Rectangle(100, 200, 50, 75)
+        expected_str = "[Rectangle] (2) 50/75 - 100/200"
+        self.assertEqual(str(rect), expected_str)
+
+    def test_display_with_x_and_y(self, mock_print):
+        rect = Rectangle(3, 2, 4, 5)
+        rect.display()
+
+    def test_update_valid_arguments(self):
+        rect = Rectangle(1, 5, 4, 2, 3)
+        rect.update(2, 10, 6, 7, 8)
+
+        self.assertEqual(rect.id, 2)
+        self.assertEqual(rect.width, 10)
+        self.assertEqual(rect.height, 6)
+        self.assertEqual(rect.x, 7)
+        self.assertEqual(rect.y, 8)
+
+    def test_update_insufficient_arguments(self):
+        rect = Rectangle(1, 5, 4, 2, 3)
+        with self.assertRaises(ValueError):
+            rect.update(2, 10, 6)
+
+    def test_update_excessive_arguments(self):
+        rect = Rectangle(1, 5, 4, 2, 3)
+        with self.assertRaises(ValueError):
+            rect.update(2, 10, 6, 7, 8, 9)
+
+    def test_update_positional_arguments(self):
+        rect = Rectangle(1, 5, 4, 2, 3)
+        rect.update(2, 10, 6, 7, 8)
+
+    def test_update_keyword_arguments(self):
+        rect = Rectangle(1, 5, 4, 2, 3)
+        rect.update(id=2, width=10, height=6, x=7, y=8)
+
+    def test_update_mixed_arguments(self):
+        rect = Rectangle(1, 5, 4, 2, 3)
+        with self.assertRaises(ValueError):
+            rect.update(2, 10, 6, x=7, y=8)
+
+    def test_update_invalid_keyword(self):
+        rect = Rectangle(1, 5, 4, 2, 3)
+        with self.assertRaises(ValueError):
+            rect.update(invalid_key=10)
+
     def test_rectangle_instances(self):
         r = Rectangle(10, 2)
         r1 = Rectangle(10, 2, 0, 0, 12)
