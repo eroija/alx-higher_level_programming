@@ -10,12 +10,12 @@ mymetadata = MetaData()
 Base = declarative_base(metadata=mymetadata)
 
 
-class State(base):
+class State(Base):
 
     """
        it represents a state for the mysql database
        __tablename__: name of mysql table to store states.
     """
     __tablename__ = 'states'
-    id = Column(Integer, primary_key=True, unique=True, nullable=False)
+    id = Column(Integer, primary_key=True, autoincrement=True, nullable=False)
     name = Column(String(128), nullable=False)
