@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 if __name__ == "__main__":
-    from hidden_4 import *
-    funcs = dir()
+    import hidden_4
 
-    for i in range(0, len(funcs)):
-        if funcs[i][:2] != "__":
-            print(":str".format(funcs[i]))
+    names = dir(hidden_4)
+    for name in names:
+        if name[:2] != "__":
+            print(name)
