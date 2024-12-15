@@ -4,6 +4,7 @@ if __name__ == "__main__":
     import math
 
     result = 0
-    for i in sys.argv:
+    vector = sys.argv - 1
+    for i in vector:
         result += int(i)
         print("{}".format(result))
